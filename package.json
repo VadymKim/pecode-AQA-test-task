@@ -16,6 +16,10 @@
   },
   "homepage": "https://github.com/VadymKim/pecode-AQA-test-task#readme",
   "dependencies": {
+    "chai": "^4.3.7",
     "cypress": "^12.11.0"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3"
   }
 }

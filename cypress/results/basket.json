@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-05-04T06:16:23.613Z",
+    "end": "2023-05-04T06:16:43.549Z",
+    "duration": 19936,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "46fd8b31-e95b-4532-acc4-42bc4f55771a",
+      "title": "",
+      "fullFile": "cypress/e2e/basket.cy.js",
+      "file": "cypress/e2e/basket.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bd2a355a-5893-4b5a-8047-7c1c8141d5db",
+          "title": "check the basket",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "can add the item",
+              "fullTitle": "check the basket can add the item",
+              "timedOut": null,
+              "duration": 19432,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  \"../screenshots/basket.cy.js/check the basket -- can add the item (failed).png\",\n  \"../videos/basket.cy.js.mp4\"\n]",
+              "code": "cy.visit(\"/\");\ncy.url().should('contain', 'rozetka.com.ua/ua');\ncy.get('.search-form__input').type('кава Tchibo {enter}');\n//cy.url().should('contain', '')\ncy.get('ul.catalog-grid').find('span.goods-tile__title').each($el => {\n  cy.get($el).should($el => {\n    expect($el.text().toUpperCase()).contains('TCHIBO');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected ' КАВА ЧІБО ФЕМІЛІ РОЗЧИННИЙ 200 Г У СКЛЯНІЙ БАНЦІ ' to include 'TCHIBO'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected ' КАВА ЧІБО ФЕМІЛІ РОЗЧИННИЙ 200 Г У СКЛЯНІЙ БАНЦІ ' to include 'TCHIBO'\n    at Context.eval (webpack:///./cypress/e2e/basket.cy.js:9:43)",
+                "diff": null
+              },
+              "uuid": "1001c1db-e36a-4bb9-8f32-f78b2bf1f020",
+              "parentUUID": "bd2a355a-5893-4b5a-8047-7c1c8141d5db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "1001c1db-e36a-4bb9-8f32-f78b2bf1f020"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 19432,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name].html",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "reportDir": "cypress/results",
+        "reportFilename": "[name].html",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

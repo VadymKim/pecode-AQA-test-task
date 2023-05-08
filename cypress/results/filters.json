@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-05-04T06:16:54.597Z",
+    "end": "2023-05-04T06:17:31.998Z",
+    "duration": 37401,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dc8703f3-41fe-41eb-bada-7143044660e1",
+      "title": "",
+      "fullFile": "cypress/e2e/filters.cy.js",
+      "file": "cypress/e2e/filters.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2307eefc-3130-4fe3-8997-f9af53e1fb22",
+          "title": "template spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "passes",
+              "fullTitle": "template spec passes",
+              "timedOut": null,
+              "duration": 37021,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  \"../screenshots/filters.cy.js/template spec -- passes (failed).png\",\n  \"../videos/filters.cy.js.mp4\"\n]",
+              "code": "//HomePage.visit()\ncy.visit(\"/\");\ncy.url().should('contain', 'rozetka.com.ua/ua');\n//HomePage.search('кава Tchibo')\ncy.get('.search-form__input').type('кава Tchibo {enter}');\n//SearchPage.getProductsTitle().should('contains', '')\ncy.get('ul.catalog-grid').find('span.goods-tile__title').each($el => {\n  cy.get($el).should($el => {\n    expect($el.text().toUpperCase()).contains('TCHIBO');\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected ' КАВА ЧІБО ФЕМІЛІ РОЗЧИННИЙ 200 Г У С…' to include 'TCHIBO'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected ' КАВА ЧІБО ФЕМІЛІ РОЗЧИННИЙ 200 Г У С…' to include 'TCHIBO'\n    at Context.eval (webpack:///./cypress/e2e/filters.cy.js:12:18)",
+                "diff": null
+              },
+              "uuid": "151544b7-8c00-4946-a5c1-18165ef6cabf",
+              "parentUUID": "2307eefc-3130-4fe3-8997-f9af53e1fb22",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "151544b7-8c00-4946-a5c1-18165ef6cabf"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 37021,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name].html",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "useInlineDiffs": true,
+        "embeddedScreenshots": true,
+        "reportDir": "cypress/results",
+        "reportFilename": "[name].html",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

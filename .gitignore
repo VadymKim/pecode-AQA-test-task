@@ -131,3 +131,13 @@ dist
 
 # package-lock.json
 package-lock.json
+
+#screenshots videos and assets
+/screenshots
+/videos
+/results/assets
+
+# ignore ALL files in ANY directory named temp
+temp/
+
+
