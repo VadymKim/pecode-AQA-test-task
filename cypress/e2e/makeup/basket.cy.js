@@ -40,14 +40,16 @@ describe('basket suite', () => {
       basketModal.getProductsList().should('have.length', 2).as('basketList')
       cy.get('@basketList').then(($list) => {
         
-        basketModal.getProductName(($list[0])).should('have.text', '@productName1')
-        basketModal.getProductName(($list[1])).should('have.text', '@productName2')
-        const productPrice1 = basketModal.getProductPrice(($list[0]));
-        const productPrice2 = basketModal.getProductPrice(($list[1]));
+        basketModal.getProductName($list[0]).should('have.text', '@productName1')
+        basketModal.getProductName($list[1]).should('have.text', '@productName2')
+        const productPrice1 = basketModal.getProductPrice($list[0]);
+        const productPrice2 = basketModal.getProductPrice($list[1]);
 
         const calculatedOrderPrice = productPrice1 + productPrice2;
         basketModal.getOrderPrice().should('eq', calculatedOrderPrice)
 
+        basketModal.getProductRemoveButton($list[0]).should('be.visible').should('be.enable')
+        basketModal.getProductRemoveButton($list[1]).should('be.visible').should('be.enable')
       })
       //this function might be turned into the custom command
       function buyProduct(product) {

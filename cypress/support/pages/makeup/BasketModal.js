@@ -30,6 +30,11 @@ class BasketModal {
       
         return parseInt(this.getBasket().find('div.order-price').find('strong').text());
     }
+
+    getProductRemoveButton(product) {
+
+        return cy.wrap(product).find('div.product__button-remove');
+    }
     
 }
 
