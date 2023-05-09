@@ -11,7 +11,7 @@ class BasketModal {
     
     getProductsList() {
        
-        return this.getBasket().find('li.data-id');
+        return this.getBasket().find('li[data-id]');
     }
 
     getProductName(product) {

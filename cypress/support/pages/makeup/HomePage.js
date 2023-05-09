@@ -18,11 +18,11 @@ class HomePage {
     }
     getFirstCategory() {
 
-        return this.getCategories().find('li.menu-list__item:nth-child(3)')
+        return this.getCategories().find('li.menu-list__item:nth-child(4)')
     }
     getSecondCategory() {
         
-        return this.getCategories().find('li.menu-list__item:nth-child(5)')
+        return this.getCategories().find('li.menu-list__item:nth-child(6)')
     }
     
     getBasketButton() {

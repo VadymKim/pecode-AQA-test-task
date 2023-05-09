@@ -6,34 +6,25 @@ class CategoryPage {
        return this.getProducts().find('a[data-default-name]');
    }
    
-   getMinPriceFilter() {
+   getMinPriceInput() {
        return cy.get('input[data-id="price-from"]');
    }
-   getMaxPriceFilter() {
+   getMaxPriceInput() {
        return cy.get('input[data-id="price-to"]');
    }
+   getPriceFilterList() {
+        return cy.get('ul.catalog-price-list')
+   }
+   getPriceFilter(filterNumber) {
+    return this.getPriceFilterList().find(`#catalog-price-dia-_${filterNumber}`)
+   }
    getProductTitle(product) {
-        console.log('getProductTitle product', product);
+       console.log('getProductTitle product', product);
        return cy.wrap(product).find('a[data-default-name]');
    }
-   getProduct() {
-    return this.getProducts().eq(1);
+   getProduct(product) {
+    return this.getProducts().eq(product);
    }
-//    getRandomProduct() {
-    
-//        this.getProducts().then(($products) => {
-//             const maxValue = $products.length;
-//             console.log('$products.length', $products.length);
-//             const randomNumber = Math.floor(Math.random() * maxValue);
-            
-//             return $products.eq(randomNumber);
-             
-//         });
-        
-        
-        
-//          return 12;
-   //}
-
 }
+
 export default CategoryPage;

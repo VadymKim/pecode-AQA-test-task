@@ -18,32 +18,22 @@ describe('basket suite', () => {
       homePage.getFirstCategory().click()
       cy.url().should('contain', '/categorys')
       
-      categoryPage.getProduct().as('product1').then(($product) => {
+      categoryPage.getProduct(1).as('product1').then(($product) => {
         categoryPage.getProductTitle($product).invoke('text').as('productName1')
       })
       
       buyProduct('@product1') 
 
-      // cy.get('@product1').click()
-      // productPage.getBasketButton().click()  
-      // basketModal.getBasket().should('exist').as('cart')
-      // basketModal.getCloseButton().should('have.length', 1).click()
-
-      homePage.visit()
-      cy.url().should('contain', Cypress.config().baseUrl)
-      
       homePage.getSecondCategory().click()
       cy.url().should('contain', '/categorys')
 
       
-      categoryPage.getProduct().as('product2').then(($product) => {
+      categoryPage.getProduct(2).as('product2').then(($product) => {
         categoryPage.getProductTitle($product).invoke('text').as('productName2')
       })
 
       buyProduct('@product2')    
-      // cy.get('@product2').click()
-      // productPage.getBasketButton().click()  
-      // basketModal.getBasket().should('exist')
+     
       homePage.getBasketButton().click()
       basketModal.getBasket().should('exist')
 
@@ -59,7 +49,7 @@ describe('basket suite', () => {
         basketModal.getOrderPrice().should('eq', calculatedOrderPrice)
 
       })
-      
+      //this function might be turned into the custom command
       function buyProduct(product) {
         cy.get(product).click()
         productPage.getBasketButton().click()  
