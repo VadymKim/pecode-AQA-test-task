@@ -1,6 +1,6 @@
 class CategoryPage {
    getProducts() {
-       return cy.get('li[data-id]');
+       return cy.get('li[data-price]');
    }
    getProductsTitle() {
        return this.getProducts().find('a[data-default-name]');
@@ -16,14 +16,24 @@ class CategoryPage {
         return cy.get('ul.catalog-price-list')
    }
    getPriceFilter(filterNumber) {
-    return this.getPriceFilterList().find(`#catalog-price-dia-_${filterNumber}`)
+        return this.getPriceFilterList().find(`#catalog-price-dia-_${filterNumber}`)
    }
    getProductTitle(product) {
-       console.log('getProductTitle product', product);
+       
        return cy.wrap(product).find('a[data-default-name]');
    }
-   getProduct(product) {
-    return this.getProducts().eq(product);
+   getProductByNumber(productNumber) {
+        return this.getProducts().eq(productNumber);
+   }
+   selectRandomProduct() {
+        cy.log('inside selectRandomProduct'); 
+        return (this.getProducts().its('length').then((length) => {
+
+            const randomNumber = Math.floor(Math.random() * length);
+            console.log(randomNumber);
+            this.getProductByNumber(randomNumber);
+        })
+    )
    }
 }
 

@@ -1,32 +1,12 @@
-import CategoryPage from "./CategoryPage";
+import { BasePage } from "./BasePage";
+import { Header } from "../../page_fragments/header.fragment";
 
-class HomePage {
-    visit() {
-        cy.visit("/");
-    }
-    getSearchButton() {
-        return cy.get('div[data-popup-handler="search"]');
-    }
+class HomePage extends BasePage {
+    header = new Header();
 
-    getSearchInput() {
-        return cy.get('.search-input');
+    checkIfLoaded = () => {
+        cy.url().should('contain', Cypress.config().baseUrl) 
     }
-    getCategories() {
-        
-        return cy.get('ul.menu-list');
-            
-    }
-    getFirstCategory() {
-
-        return this.getCategories().find('li.menu-list__item:nth-child(4)')
-    }
-    getSecondCategory() {
-        
-        return this.getCategories().find('li.menu-list__item:nth-child(6)')
-    }
-    
-    getBasketButton() {
-        return cy.get('div.header-basket');
-    }
+   
 }
 export default HomePage;

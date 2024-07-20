@@ -7,15 +7,14 @@ describe('search suite', () => {
       const categoryPage = new CategoryPage();
       
       homePage.visit()
-      cy.url().should('contain', Cypress.config().baseUrl)
-      homePage.getSearchButton().click();
-
-      homePage.getSearchInput().type('versace {enter}')
-      cy.url().should('contain', 'versace')
-     
-      categoryPage.getProductsTitle().should(($title) => {
+      homePage.checkIfLoaded();
+      homePage.header.clickSearchButton();
+      homePage.header.getSearchInput().type('versace {enter}');
+      cy.url().should('contain', 'versace');
+      categoryPage.getProductsTitle().then(($title) => {
         const upperCasedTitle = $title.text().toUpperCase();
-        expect(upperCasedTitle).to.include('VERSACE')
+
+        expect(upperCasedTitle).to.include('VERSACE');
       })
     })
 })

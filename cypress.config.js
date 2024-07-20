@@ -20,13 +20,15 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: 'https://makeup.com.ua/ua',
+    viewportWidth: 1366,
+    viewportHeight: 768,
     
   },
   blockHosts: [
-    "*stats.g.doubleclick.net",
-    "*google-analytics.com",
-    "*u.makeup.com.ua",
-    "*googlesyndication.com"
+    // "*stats.g.doubleclick.net",
+    // "*google-analytics.com",
+    // "*u.makeup.com.ua",
+    // "*googlesyndication.com"
   ]
  
 });
